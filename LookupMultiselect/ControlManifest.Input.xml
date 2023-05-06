@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="XIX" constructor="LookupMultiselect" version="0.0.1" display-name-key="LookupMultiselect" description-key="LookupMultiselect description" control-type="standard" >
+    <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
+       <type-group name="textareas">
+        <type>SingleLine.Text</type>
+        <type>SingleLine.TextArea</type>
+        <type>Multiple</type>
+    </type-group>
+    <property name="field" display-name-key="Field" description-key="Field to be populated with the selected values" of-type-group="textareas" usage="bound" required="true" />
+    <property name="entityName" display-name-key="Entity Name" description-key="Name of the entity from which you want to return results" of-type="SingleLine.Text" usage="input" required="true" />
+	<property name="data" display-name-key="Data" description-key="Data field from request to be inserted in field" of-type="SingleLine.Text" usage="input" required="true" />
+	  <property name="groupBy" display-name-key="Group By" description-key="Schema field name for Group By Columns" of-type="SingleLine.Text" usage="input" required="true" />
+	<property name="attributeid" display-name-key="Main Attribute Id" description-key="Schema name for the main field of the entity you want to retrieve" of-type="SingleLine.Text" usage="input" required="true" />
+	  <property name="searchColumn" display-name-key="Search Column" description-key="Schema name for the field you want to search" of-type="SingleLine.Text" usage="input" required="true" />
+	  <property name="filter" display-name-key="Filter" description-key="Query to filter the results to return." of-type-group="textareas" usage="input" required="false" />
+	  <property name="columns" display-name-key="Columns" description-key="Columns to be displayed in the list with the following syntax: DisplayName,fieldName;Name,name;Age,age" of-type-group="textareas" usage="input" required="true" />
+	  <property name="headerVisible" display-name-key="Header Visible" description-key="Is the header of the columns visible for the list?" of-type="Enum" usage="input" required="false">
+		  <value name="true" display-name-key="True" description-key="true">True</value>
+		  <value name="false" display-name-key="False" description-key="false">False</value>
+	  </property>
+	  <property name="openFormOptions" display-name-key="How do you want to open the form?" description-key="How do you want to open the form when you click the record?" of-type="Enum" usage="input" required="false">
+		  <value name="noAction" display-name-key="No action" description-key="Disable the action">No action</value>
+		  <value name="popup" display-name-key="As a popup" description-key="In a pop up">Pop up</value>
+		  <value name="sameWindow" display-name-key="In the same window" description-key="In the same window">In the same window</value>
+		  <value name="newWindow" display-name-key="In a new window" description-key="In a new window">In a new window</value>
+	  </property>
+	  <property name="populatedFieldVisible" display-name-key="Populated Field Visible" description-key="Is the field that gets populated visible?" of-type="Enum" usage="input" required="true">
+		  <value name="false" display-name-key="False" description-key="false">False</value>
+		  <value name="true" display-name-key="True" description-key="true">True</value>
+	  </property>
+	  <property name="isMultiple" display-name-key="Is Multiple" description-key="Is selector multiple? By default will be True" of-type="Enum" usage="input" required="false">
+		  <value name="false" display-name-key="False" description-key="false">False</value>
+		  <value name="true" display-name-key="True" description-key="true">True</value>
+	  </property>
+	  <property name="overwriteFilter" display-name-key="Overwrite Control Filter" description-key="Use SRM Ownership Filter" of-type="Enum" usage="input" required="false">
+		  <value name="false" display-name-key="False" description-key="false">False</value>
+		  <value name="true" display-name-key="True" description-key="true">True</value>
+	  </property>
+    <resources>
+      <code path="index.ts" order="1"/>
+    </resources>
+
+    <feature-usage>
+      <uses-feature name="Utility" required="true" />
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+
+  </control>
+</manifest>
